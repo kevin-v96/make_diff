@@ -4,6 +4,7 @@ from functools import reduce
 from utils import normalize_code, is_valid_python, is_comment, parse_and_compare, categorize_diff
 
 def get_coupled_diff_lines(diffs: List[str]) -> List[str]:
+    """Returns lines from the diff coupled with each other"""
     changed_lines_a = []
     changed_lines_b = []
 
@@ -17,6 +18,7 @@ def get_coupled_diff_lines(diffs: List[str]) -> List[str]:
     return coupled_diffs
 
 def resolve_diff(snippet_a: str, snippet_b: str) -> List[str]:
+    """Return simple diff only if it has code change that will be noticed by python interpreter"""
     #check if there are no programmatic differences in the snippets
     if parse_and_compare(snippet_a, snippet_b):
         return []
