@@ -45,7 +45,7 @@ def resolve_categorized_diff(snippet_a: str, snippet_b: str) -> List[str]:
     normalized_a = normalize_code(snippet_a)
     normalized_b = normalize_code(snippet_b)
 
-    diff = dl.ndiff(normalized_a.split('\n'), normalized_b.split('\n'))
+    diff = dl.ndiff(snippet_a.split('\n'), snippet_b.split('\n'))
 
     diffs = get_coupled_diff_lines(diff)
     

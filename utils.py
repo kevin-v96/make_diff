@@ -37,12 +37,15 @@ def normalize_code(code: str) -> str:
     normalized_lines = [line.strip() for line in lines]
     return '\n'.join(normalized_lines)
 
+def is_diff(code: str) -> bool:
+    return code.startswith('-') or code.startswith('+')
+
 def categorize_diff(diff: str) -> str:
     """Categorizes the different kinds of diffs"""
     type = None
-    if diff.startswith('- #') or diff.startswith('+ #'):
+    if is_diff(diff) and is_comment(diff[1:]):
         type = 'comment'
-    elif diff.startswith('-') or diff.startswith('+'):
+    elif is_diff(diff):
         type = 'interpreter'
     else:
         type = 'formatting'
