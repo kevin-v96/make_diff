@@ -37,13 +37,10 @@ def resolve_diff(snippet_a: str, snippet_b: str) -> List[str]:
     diffs = get_coupled_diff_lines(filtered_diff)
     return diffs
 
-def resolve_categorized_diff(snippet_a: str, snippet_b: str) -> List[str]:
-    #check if there are no programmatic differences in the snippets
-    if parse_and_compare(snippet_a, snippet_b):
-        return []
-    
-    normalized_a = normalize_code(snippet_a)
-    normalized_b = normalize_code(snippet_b)
+def resolve_categorized_diff(snippet_a: str, snippet_b: str) -> List[str]: 
+    #can't normalize this time because we have to take into account the spaces for formatting   
+    #normalized_a = normalize_code(snippet_a)
+    #normalized_b = normalize_code(snippet_b)
 
     diff = dl.ndiff(snippet_a.split('\n'), snippet_b.split('\n'))
 
