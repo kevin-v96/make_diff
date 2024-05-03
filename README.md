@@ -1,3 +1,6 @@
+# make_diff
+Function that outputs diffs between snippets of code.
+
 ### Requirements
 Run `pip install -r requirements.txt` to install the required modules. 
 
