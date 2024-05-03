@@ -11,6 +11,11 @@ If you want to add your own tests, you can add them by appending a tupple of `(s
 ### Results
 The tests for `resolve_diff` should all pass, the tests for `resolve_categorised_diff` will fail because the function is still not correctly categorising the coupled diffs - I've tracked down the reason for this, which is that my current approach doesn't work when code is divided between lines. Completing `resolve_categorised_diff` is left as a to-do.
 
+### TODO
+- [x] Add uncategorised differ
+- [ ] Add differ with categories
+- [x] Add test cases for both functions
+
 ### references
 - https://docs.python.org/3/library/ast.html
 - https://petr-muller.github.io/projects/2018/04/06/python-diff-started.html
